@@ -1,0 +1,25 @@
+<!--
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div th:each="profile : ${profiles}">
+    <h2 th:text="${profile.name}"></h2>
+    <h6 th:inline="text">[[${profile.name}]]</h6>
+    <ul>
+        <th:blick th:each="history : ${profile.histories}]]">
+            <li th:inline="text"><b>[[${history.eAddress}]]</b>
+                <b>[[${history.number}]]</b>
+                <b>[[${history.exprience}]]</b>
+                <b>[[${history.eAchievments}]]</b>
+                <b>[[${history.ablility}]]</b>
+            </li>
+        </th:blick>
+    </ul>
+</div>
+
+</body>
+</html>-->

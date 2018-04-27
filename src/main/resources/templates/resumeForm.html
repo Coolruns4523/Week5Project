@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/html/html_layout.asp">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+        }
+
+        .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .col-25, .col-75, input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<h2>Resume Form</h2>
+
+    <form action="#" th:action="@{/saveresume}"
+          th:object="${aResume}"
+          method="post">
+        <input type="hidden" th:field="*{id}"/>
+
+        <div class="container">
+        <div class="row">
+            <div class="col-25">
+            </div>
+
+            <div class="col-75">
+                <input class="form-control" type="text" placeholder="First Name" th:field="*{firstName}"/>
+                <span th:if="${#fields.hasErrors('firstName')}"
+                      th:errors="*{firstName}"></span><br/>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+
+
+            <input class="form-control" type="text" placeholder="lastName" th:field="*{lastName}"/>
+            <span th:if="${#fields.hasErrors('lastName')}"
+                  th:errors="*{lastName}"></span><br/>
+        </div>
+
+
+        <div class="row">
+
+
+
+            <input class="form-control" type="text" placeholder="email" th:field="*{email}"/>
+            <span th:if="${#fields.hasErrors('email')}"
+                  th:errors="*{email}"></span><br/>
+        </div>
+
+
+        <div class="row">
+
+            <input class="form-control" type="text" placeholder="number" th:field="*{number}"/>
+            <span th:if="${#fields.hasErrors('number')}"
+                  th:errors="*{number}"></span><br/>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-25">
+                <label for="country">Country</label>
+            </div>
+            <div class="col-75">
+                <select id="country" name="country">
+                    <option value="australia">Australia</option>
+                    <option value="canada">Canada</option>
+                    <option value="usa">USA</option>
+                </select>
+            </div>
+        </div>
+
+
+
+            <div class="col-75">
+                <input class="form-control" type="text" placeholder="Work Experience" th:field="*{workExperience}" style="height:200px"/>
+                <span th:if="${#fields.hasErrors('workExperience')}"
+                      th:errors="*{workExperience}"></span><br/>
+            </div>
+
+
+            <div class="col-75">
+                <input class="form-control" type="text" placeholder="Educational Achievements" th:field="*{educationalAchievements}" style="height:200px"/>
+                <span th:if="${#fields.hasErrors('educationalAchievements')}"
+                      th:errors="*{educationalAchievements}"></span><br/>
+            </div>
+
+            <div class="col-75">
+                <input class="form-control" type="text" placeholder="Skill" th:field="*{skill}" style="height:200px"/>
+                <span th:if="${#fields.hasErrors('skill')}"
+                      th:errors="*{skill}"></span><br/>
+            </div>
+
+        <div class="row">
+            <button type="submit" value="Submit">Add Resume</button>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
